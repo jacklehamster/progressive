@@ -1,3 +1,3 @@
-import { Hello } from "bun-template";
+import { NumVal } from "bun-template";
 
-export { Hello };
+export { NumVal };
