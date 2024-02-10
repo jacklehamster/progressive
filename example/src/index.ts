@@ -1,3 +1,3 @@
-import { NumVal } from "bun-template";
+import { NumVal } from "progressive-value";
 
 export { NumVal };

@@ -1,4 +1,4 @@
-// /Users/vincent/progressive/example/node_modules/bun-template/dist/index.js
+// /Users/vincent/progressive-value/example/node_modules/progressive-value/dist/index.js
 class y {
   q;
   w;

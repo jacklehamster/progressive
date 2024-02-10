@@ -1,5 +1,5 @@
 {
-  "name": "progressive",
+  "name": "progressive-value",
   "module": "src/index.ts",
   "description": "Library for values that progress over time, for animation or other progressively changing values.",
   "version": "1.0.0",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:jacklehamster/progressive.git"
+    "url": "https://github.com/jacklehamster/progressive-value.git"
   },
   "homepage": "<fill in homepage>",
   "author": {
