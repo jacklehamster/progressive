@@ -1,8 +1,8 @@
 {
-  "name": "bun-template",
+  "name": "progressive",
   "module": "src/index.ts",
-  "description": "Bun template for creating projects using bunjs",
-  "version": "1.0.46",
+  "description": "Library for values that progress over time, for animation or other progressively changing values.",
+  "version": "1.0.0",
   "keywords": [
     "bun",
     "bunjs",
@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:jacklehamster/bun-template.git"
+    "url": "https://github.com/jacklehamster/progressive.git"
   },
-  "homepage": "https://jacklehamster.github.io/bun-template/",
+  "homepage": "<fill in homepage>",
   "author": {
     "name": "Jack Le Hamster",
     "email": "jacklehamster@gmail.com"
@@ -65,5 +65,9 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "bun-pool": "^1.0.7",
+    "motor-loop": "^1.0.15"
   }
 }
