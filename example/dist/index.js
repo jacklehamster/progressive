@@ -1,19 +1,19 @@
 // /Users/vincent/progressive-value/example/node_modules/progressive-value/dist/index.js
-class y {
+class z {
   q;
   w;
   #F;
   #q = false;
   #x = 0;
   #w;
-  #y;
+  #z;
   constructor(F, q, w) {
     this.getValue = q;
     this.apply = w;
-    this.#y = F, this.#F = this.getValue(F);
+    this.#z = F, this.#F = this.getValue(F);
   }
   set element(F) {
-    this.#y = F, this.#F = this.getValue(F), this.#w = undefined;
+    this.#z = F, this.#F = this.getValue(F), this.#w = undefined;
   }
   setGoal(F, q, w) {
     if (this.#w && this.#w !== w)
@@ -26,17 +26,17 @@ class y {
   }
   update(F) {
     if (this.#q) {
-      const q = this.getValue(this.#y), w = this.goal - q, x = Math.min(Math.abs(w), this.#x * F);
+      const q = this.getValue(this.#z), w = this.goal - q, x = Math.min(Math.abs(w), this.#x * F);
       if (x <= 0.01)
-        this.apply(this.#y, this.goal), this.#q = false, this.#w = undefined;
+        this.apply(this.#z, this.goal), this.#q = false, this.#w = undefined;
       else
-        this.apply(this.#y, q + x * Math.sign(w));
+        this.apply(this.#z, q + x * Math.sign(w));
     }
     return this.#q;
   }
 }
 
-class z {
+class A {
   i;
   f;
   warningLimit = 50000;
@@ -75,18 +75,18 @@ class z {
   }
 }
 
-class A extends z {
+class B extends A {
   constructor() {
     super((F, q) => {
       if (!F)
-        return new y(q, (w) => w.valueOf(), (w, x) => w.setValue(x));
+        return new z(q, (w) => w.valueOf(), (w, x) => w.setValue(x));
       return F.element = q, F;
     });
   }
 }
-var H = new A;
+var H = new B;
 
-class B {
+class C {
   q;
   w;
   #F = 0;
@@ -131,5 +131,5 @@ class B {
   }
 }
 export {
-  B as NumVal
+  C as NumVal
 };

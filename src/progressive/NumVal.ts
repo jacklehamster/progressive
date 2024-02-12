@@ -1,5 +1,5 @@
 import { Progressive } from "./Progressive";
-import { Val } from "./Val";
+import { Val } from "dok-types";
 import { IMotor, Refresh, UpdatePayload } from "motor-loop";
 import { ObjectPool } from "bun-pool";
 
@@ -22,7 +22,7 @@ export class NumVal implements Val<number>, Refresh {
   #progressive?: Progressive<NumVal>;
 
   constructor(value: number = 0,
-    private onChange?: (value: number) => void,
+    readonly onChange?: (value: number) => void,
     private pool: ProgressivePool = COMMON_PROGRESSIVE_POOL) {
     this.#value = value;
   }
