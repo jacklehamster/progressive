@@ -1,6 +1,6 @@
 import { Progressive } from "./Progressive";
 import { Val } from "dok-types";
-import { IMotor, Refresh, UpdatePayload } from "motor-loop";
+import { IMotor, Cycle, UpdatePayload } from "motor-loop";
 import { ObjectPool } from "bun-pool";
 
 export class ProgressivePool extends ObjectPool<Progressive<NumVal>, [NumVal]> {
@@ -17,7 +17,7 @@ export class ProgressivePool extends ObjectPool<Progressive<NumVal>, [NumVal]> {
 
 const COMMON_PROGRESSIVE_POOL = new ProgressivePool();
 
-export class NumVal implements Val<number>, Refresh {
+export class NumVal implements Val<number>, Cycle {
   #value: number = 0;
   #progressive?: Progressive<NumVal>;
 

@@ -1,56 +1,56 @@
 // /Users/vincent/progressive-value/example/node_modules/progressive-value/dist/index.js
-class z {
-  q;
+class y {
   w;
+  q;
   #F;
-  #q = false;
+  #w = false;
   #x = 0;
-  #w;
-  #z;
-  constructor(F, q, w) {
-    this.getValue = q;
-    this.apply = w;
-    this.#z = F, this.#F = this.getValue(F);
+  #q;
+  #y;
+  constructor(F, w, q) {
+    this.getValue = w;
+    this.apply = q;
+    this.#y = F, this.#F = this.getValue(F);
   }
   set element(F) {
-    this.#z = F, this.#F = this.getValue(F), this.#w = undefined;
+    this.#y = F, this.#F = this.getValue(F), this.#q = undefined;
   }
-  setGoal(F, q, w) {
-    if (this.#w && this.#w !== w)
+  setGoal(F, w, q) {
+    if (this.#q && this.#q !== q)
       return;
-    if (this.#F !== F || this.#x !== q)
-      this.#x = q, this.#F = F, this.#w = w, this.#q = true;
+    if (this.#F !== F || this.#x !== w)
+      this.#x = w, this.#F = F, this.#q = q, this.#w = true;
   }
   get goal() {
     return this.#F;
   }
   update(F) {
-    if (this.#q) {
-      const q = this.getValue(this.#z), w = this.goal - q, x = Math.min(Math.abs(w), this.#x * F);
+    if (this.#w) {
+      const w = this.getValue(this.#y), q = this.goal - w, x = Math.min(Math.abs(q), this.#x * F);
       if (x <= 0.01)
-        this.apply(this.#z, this.goal), this.#q = false, this.#w = undefined;
+        this.apply(this.#y, this.goal), this.#w = false, this.#q = undefined;
       else
-        this.apply(this.#z, q + x * Math.sign(w));
+        this.apply(this.#y, w + x * Math.sign(q));
     }
-    return this.#q;
+    return this.#w;
   }
 }
 
-class A {
+class z {
   i;
   f;
   warningLimit = 50000;
   #F = new Set;
-  #q = [];
-  constructor(F, q) {
-    this.initCall = F, this.onRecycle = q;
+  #w = [];
+  constructor(F, w) {
+    this.initCall = F, this.onRecycle = w;
   }
   create(...F) {
-    const q = this.#q.pop();
-    if (q)
-      return this.#F.add(q), this.initCall(q, ...F);
-    const w = this.initCall(undefined, ...F);
-    return this.#F.add(w), this.#w(), w;
+    const w = this.#w.pop();
+    if (w)
+      return this.#F.add(w), this.initCall(w, ...F);
+    const q = this.initCall(undefined, ...F);
+    return this.#F.add(q), this.#q(), q;
   }
   recycle(F) {
     this.#F.delete(F), this.#x(F);
@@ -61,39 +61,39 @@ class A {
     this.#F.clear();
   }
   clear() {
-    this.#q.length = 0, this.#F.clear();
+    this.#w.length = 0, this.#F.clear();
   }
   countObjectsInExistence() {
-    return this.#F.size + this.#q.length;
+    return this.#F.size + this.#w.length;
   }
   #x(F) {
-    this.#q.push(F), this.onRecycle?.(F);
+    this.#w.push(F), this.onRecycle?.(F);
   }
-  #w() {
+  #q() {
     if (this.countObjectsInExistence() === this.warningLimit)
-      console.warn("ObjectPool already created", this.#F.size + this.#q.length, "in", this.constructor.name);
+      console.warn("ObjectPool already created", this.#F.size + this.#w.length, "in", this.constructor.name);
   }
 }
 
-class B extends A {
+class A extends z {
   constructor() {
-    super((F, q) => {
+    super((F, w) => {
       if (!F)
-        return new z(q, (w) => w.valueOf(), (w, x) => w.setValue(x));
-      return F.element = q, F;
+        return new y(w, (q) => q.valueOf(), (q, x) => q.setValue(x));
+      return F.element = w, F;
     });
   }
 }
-var H = new B;
+var H = new A;
 
-class C {
-  q;
+class B {
   w;
+  q;
   #F = 0;
-  #q;
-  constructor(F = 0, q, w = H) {
-    this.onChange = q;
-    this.pool = w;
+  #w;
+  constructor(F = 0, w, q = H) {
+    this.onChange = w;
+    this.pool = q;
     this.#F = F;
   }
   valueOf() {
@@ -108,28 +108,28 @@ class C {
     return this.setValue(this.#F + F), this;
   }
   update(F) {
-    if (this.#q) {
-      const q = !!this.#q.update(F);
-      if (!q)
-        this.pool.recycle(this.#q), this.#q = undefined;
-      return q;
+    if (this.#w) {
+      const w = !!this.#w.update(F);
+      if (!w)
+        this.pool.recycle(this.#w), this.#w = undefined;
+      return w;
     }
     return false;
   }
-  refresh({ deltaTime: F, stopUpdate: q }) {
+  refresh({ deltaTime: F, stopUpdate: w }) {
     if (!this.update(F))
-      q();
+      w();
   }
-  progressTowards(F, q, w, x) {
-    if (!this.#q)
-      this.#q = this.pool.create(this);
-    if (this.#q.setGoal(F, q, w), x)
+  progressTowards(F, w, q, x) {
+    if (!this.#w)
+      this.#w = this.pool.create(this);
+    if (this.#w.setGoal(F, w, q), x)
       x.loop(this, undefined);
   }
   get goal() {
-    return this.#q?.goal ?? this.valueOf();
+    return this.#w?.goal ?? this.valueOf();
   }
 }
 export {
-  C as NumVal
+  B as NumVal
 };

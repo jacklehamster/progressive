@@ -82,7 +82,7 @@ describe('NumVal', () => {
 
     const numVal = new NumVal(0, undefined, progressivePoolMock);
     numVal.progressTowards(15, 5, undefined, motorMock);
-    numVal.refresh({ deltaTime: 1, stopUpdate: stopUpdateMock, time: 0, data: undefined, renderFrame: false, refresher: numVal, stopped: false });
+    numVal.refresh({ deltaTime: 1, stopUpdate: stopUpdateMock, time: 0, data: undefined, renderFrame: false, cycle: numVal, stopped: false });
     expect(stopUpdateMock).toHaveBeenCalled();
   });
 

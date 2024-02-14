@@ -69,6 +69,6 @@
   "dependencies": {
     "bun-pool": "^1.0.7",
     "dok-types": "^1.0.5",
-    "motor-loop": "^1.0.15"
+    "motor-loop": "^1.0.16"
   }
 }
