@@ -1,7 +1,8 @@
-# bun-template
+# progressive-value
+
 [![npm version](https://badge.fury.io/js/progressive-value.svg)](https://www.npmjs.com/package/progressive-value)
 
-Bun template for creating projects using bunjs
+Package for value progressing over time. Hum yeah that's pretty much it.
 
 ![](https://jacklehamster.github.io/progressive-value/icon.png)
 ## Install bun
