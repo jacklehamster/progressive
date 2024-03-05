@@ -2,6 +2,7 @@ import { Progressive } from "./Progressive";
 import { Val } from "dok-types";
 import { IMotor, Cycle, UpdatePayload } from "motor-loop";
 import { ObjectPool } from "bun-pool";
+import { Locker } from "./Locker";
 
 export class ProgressivePool extends ObjectPool<Progressive<NumVal>, [NumVal]> {
   constructor() {
@@ -62,7 +63,7 @@ export class NumVal implements Val<number>, Cycle {
     }
   }
 
-  progressTowards(goal: number, speed: number, locker?: any, motor?: IMotor) {
+  progressTowards(goal: number, speed: number, locker?: Locker, motor?: IMotor) {
     if (!this.#progressive) {
       this.#progressive = this.pool.create(this);
     }

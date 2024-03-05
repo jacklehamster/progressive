@@ -1,9 +1,11 @@
+import { Locker } from "./Locker";
+
 export class Progressive<T> {
   #goal: number;
   #active: boolean = false;
   #speed: number = 0;
-  #locker?: any;
   #element: T;
+  #locker?: Locker;
 
   constructor(element: T, private getValue: (element: T) => number, private apply: (element: T, value: number) => void) {
     this.#element = element;
@@ -16,7 +18,7 @@ export class Progressive<T> {
     this.#locker = undefined;
   }
 
-  setGoal(value: number, speed: number, locker?: any) {
+  setGoal(value: number, speed: number, locker?: Locker) {
     if (this.#locker && this.#locker !== locker) {
       return;
     }
@@ -41,6 +43,7 @@ export class Progressive<T> {
       if (dDist <= .01) {
         this.apply(this.#element, this.goal);
         this.#active = false;
+        this.#locker?.onRelease?.();
         this.#locker = undefined;
       } else {
         this.apply(this.#element, curValue + dDist * Math.sign(diff));
