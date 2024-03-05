@@ -2,7 +2,7 @@
   "name": "progressive-value",
   "module": "src/index.ts",
   "description": "Library for values that progress over time, for animation or other progressively changing values.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "keywords": [
     "bun",
     "bunjs",
