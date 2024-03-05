@@ -5,7 +5,7 @@ export class Progressive<T> {
   #active: boolean = false;
   #speed: number = 0;
   #element: T;
-  #locker?: Locker;
+  #locker?: Locker | any;
 
   constructor(element: T, private getValue: (element: T) => number, private apply: (element: T, value: number) => void) {
     this.#element = element;
@@ -18,7 +18,7 @@ export class Progressive<T> {
     this.#locker = undefined;
   }
 
-  setGoal(value: number, speed: number, locker?: Locker) {
+  setGoal(value: number, speed: number, locker?: Locker | any) {
     if (this.#locker && this.#locker !== locker) {
       return;
     }

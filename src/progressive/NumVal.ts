@@ -63,7 +63,7 @@ export class NumVal implements Val<number>, Cycle {
     }
   }
 
-  progressTowards(goal: number, speed: number, locker?: Locker, motor?: IMotor) {
+  progressTowards(goal: number, speed: number, locker?: (Locker | any), motor?: IMotor) {
     if (!this.#progressive) {
       this.#progressive = this.pool.create(this);
     }
